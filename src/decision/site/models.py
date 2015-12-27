@@ -11,11 +11,16 @@ class group(models.Model):
         return self.group_id.__str__()
     
 class idea(models.Model):
-    IDEA_STATUS=(('A','Agreed'),('D','Disagree'),('C','Counter'),('P','Pending'))
-    IDEA_STATUS_CHOICE=(('A','Agreed'),('D','Disagree'),('C','Counter'))
+    AGREED='AGREED'
+    DISAGREE='DISAGREE'
+    COUNTER='COUNTER'
+    PENDING='PENDING'
+    
+    IDEA_STATUS=((AGREED,'Agreed'),(DISAGREE,'Disagree'),(COUNTER,'Counter'),(PENDING,'Pending'))
+    IDEA_STATUS_CHOICE=((AGREED,'Agreed'),(DISAGREE,'Disagree'),(COUNTER,'Counter'))
     
     id = models.IntegerField(primary_key=True)
-    status = models.CharField(max_length=1, choices=IDEA_STATUS)
+    status = models.CharField(max_length=99, choices=IDEA_STATUS)
     description = models.CharField(max_length=99)
     statement = models.CharField(max_length=99)
     opinion = models.CharField(max_length=99, blank=True)
@@ -30,3 +35,9 @@ class ideaResponseForm(ModelForm):
     class Meta:
         model = idea
         fields = ['status', 'opinion', ]
+        
+class ideaSubmissionForm(ModelForm):
+    
+    class Meta:
+        model = idea
+        fields = ['description', 'statement', 'opinion', ]

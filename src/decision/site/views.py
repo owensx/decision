@@ -1,12 +1,34 @@
 from django.shortcuts import render, get_object_or_404
 import os
 from decision.site.models import *
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseBadRequest, HttpResponseRedirect
 import logging
+from uuid import uuid4
 
 def master(request):
-    
-    context = {'ideas' : idea.objects.all()}
+    if request.method == 'POST': # If the form has been submitted...
+        form = ideaSubmissionForm(request.POST) # A form bound to the POST data
+        
+        if form.is_valid():
+            description=form.cleaned_data['description']
+            statement=form.cleaned_data['statement']
+            opinion=form.cleaned_data['opinion']
+                        
+            idToInsert = uuid4().int % 1000000000
+            while idea.objects.filter(id=idToInsert):
+                idToInsert = uuid4().int % 1000000000
+                
+                
+            newIdea=idea(id=idToInsert, description=description, statement=statement, opinion=opinion, status=idea.PENDING)
+            newIdea.save()
+            
+            return HttpResponseRedirect('/')
+        
+        else:
+            return HttpResponseBadRequest()
+            
+    context = {'ideas' : idea.objects.all()
+               , 'form' : ideaSubmissionForm()}
     return render(request, 'master.html', context)
 
 
