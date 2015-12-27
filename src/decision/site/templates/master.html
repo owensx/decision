@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Description</th>
+    <th>Statement</th>
+    <th>Opinion</th>
+    <th>Status</th>
+  </tr>
+  
+{% for idea in ideas %}
+  <tr>
+    <td><a href="idea/{{idea.id}}">{{ idea.id }}</a></td>
+    <td>{{ idea.description }}</td>
+    <td>{{ idea.statement }}</td>
+    <td>{{ idea.opinion }}</td>
+    <td>{{ idea.status }}</td>
+  </tr>
+{% endfor %}
+
+</table>

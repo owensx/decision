@@ -1,0 +1,25 @@
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Description</th>
+    <th>Statement</th>
+    <th>Opinion</th>
+    <th>Status</th>
+  </tr>
+  
+  <tr>
+    <td>{{ id }}</td>
+    <td>{{ description }}</td>
+    <td>{{ statement }}</td>
+    <td>{{ opinion }}</td>
+    <td>{{ status }}</td>
+  </tr>
+
+</table>
+
+<form enctype="multipart/form-data" action="/idea/{{ id }}" method="post">
+  {% csrf_token %}
+    {{ form.as_p }}
+    
+    <input type="submit" value="Submit">
+</form>
