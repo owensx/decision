@@ -1,0 +1,52 @@
+#inputFormDiv {
+	width: 30%;
+	float: left;
+}
+
+#ideaTableDiv {
+	height: 80%;
+	width: 60%;
+  	margin-left: auto ;
+  	margin-right: auto ;
+	overflow-y: scroll;
+	float: right;
+}
+
+#ideaTable {
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	border-collapse: separate;
+	border-spacing: .2em 2em;
+	border-radius: 
+}
+
+#ideaTable tr {
+	height: 90px;
+	border-top: solid;
+}
+
+#ideaTable td div {
+	height: 100%;
+}
+
+#metaI div {
+	border:solid;
+	border-color: orange;
+	background-color: gold;
+	border-radius: 20px;
+}
+
+#statement {
+	border:solid;
+	border-color: green;
+	background-color: lightgreen;
+	border-radius: 20px;
+}
+
+#opinion {
+	border:solid;
+	border-color: purple;
+	background-color: lavender;
+	border-radius: 20px;
+}
