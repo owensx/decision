@@ -22,10 +22,10 @@
 		{% for idea in ideas %}
   			<tr>
 				<td id="metaI";>
-					<div id="ideaId" style="height:45%; width:47%; float:left; margin-bottom:2%;"><a href="idea/{{idea.id}}">{{ idea.id }}</a></div>
-					<div id="tags" style="height:45%; width:47%; float:right; margin-bottom:2%;">tags</div>
-					<div id="dateCreated" style="height:45%; width:47%; float:left;">createdDate</div>
-					<div id="dateDue" style="height:45%; width:47%; float:right;">dueDate</div>
+					<div id="ideaId" style="height:45%; width:40%; float:left; margin-bottom:2%;"><a href="idea/{{idea.id}}">{{ idea.id }}</a></div>
+					<div id="tags" style="height:45%; width:40%; float:left; margin-bottom:2%;">tags</div>
+					<div id="dateCreated" style="height:45%; width:40%; float:left;">createdDate</div>
+					<div id="dateDue" style="height:45%; width:40%; float:left;">dueDate</div>
 				</td>
 				<td><div id="statement"> {{ idea.statement }} </div></td>
 				<td><div id="opinion"> {{ idea.opinion }} </div></td>
